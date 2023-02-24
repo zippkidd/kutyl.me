@@ -7,7 +7,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'kutyl.me',
-    siteUrl: 'https://www.yourdomain.tld'
+    siteUrl: 'https://kutyl.me/'
   },
   plugins: [
     {
