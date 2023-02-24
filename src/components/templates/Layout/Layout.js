@@ -1,5 +1,6 @@
 import React from 'react'
 import { wrapper } from './Layout.module.scss'
+import '../../../styles/globals.scss'
 
 const Layout = ({
   children,
