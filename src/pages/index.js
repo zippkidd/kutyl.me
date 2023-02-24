@@ -1,10 +1,13 @@
 import * as React from 'react'
+import { Layout } from '../components/templates'
+import { Button } from '../components/atoms'
 
 const IndexPage = () => {
   return (
-    <main>
+    <Layout>
       Hello, World!
-    </main>
+      <Button />
+    </Layout>
   )
 }
 
