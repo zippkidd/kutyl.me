@@ -12,7 +12,7 @@ const Link = ({
   if (internal) {
     return (
       <GatsbyLink
-        className={type}
+        className={type || 'tertiary'}
         to={href}
       >
         {label}
@@ -21,7 +21,7 @@ const Link = ({
   }
   return (
     <a
-      className={type}
+      className={type || 'tertiary'}
       href={href}
     >
       {label}
