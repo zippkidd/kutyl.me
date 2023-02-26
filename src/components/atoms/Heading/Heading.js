@@ -36,6 +36,10 @@ const Heading = ({
       return (
         <h6 id={id} className={className}>{children}</h6>
       )
+    default:
+      return (
+        <h1 id={id} className={className}>{children}</h1>
+      )
   }
 }
 
