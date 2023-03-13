@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "standard"
+    "test": "standard && jest"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
