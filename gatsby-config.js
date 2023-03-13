@@ -29,6 +29,13 @@ module.exports = {
         path: './src/images/'
       },
       __key: 'images'
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printRejected: true,
+        develop: true
+      }
     }
   ]
 }
