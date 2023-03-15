@@ -1,18 +1,24 @@
 import * as React from 'react'
+import useGetProjects from '../hooks/useGetProjects'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Layout } from '../components/templates'
 import { Heading } from '../components/atoms/'
 
 const IndexPage = () => {
+  const projects = useGetProjects()
+  const cardImage = getImage(projects[0].card)
+  console.log(projects[0].slug)
+  // console.log(projects)
+  // console.log(cardImage)
   return (
     <Layout>
       <Heading
         level='1'
-        size='3'
         id='testID'
       >
-        Cuddle Me
+        {projects[0].title}
       </Heading>
-      Hello, World!
+      <GatsbyImage image={cardImage} alt='test image' />
     </Layout>
   )
 }
