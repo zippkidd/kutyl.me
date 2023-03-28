@@ -5,7 +5,7 @@ const useGetProjects = () => {
     query {
       allContentfulProject(sort: {createdAt: DESC}) {
         nodes {
-          card {
+          banner {
             gatsbyImageData(
               jpegProgressive: true
               placeholder: DOMINANT_COLOR
