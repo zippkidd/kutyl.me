@@ -1,26 +1,29 @@
 import * as React from 'react'
-import useGetProjects from '../hooks/useGetProjects'
+import useGetHomepage from '../hooks/useGetHomepage'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Layout } from '../components/templates'
 import { Heading } from '../components/atoms/'
 
 const IndexPage = () => {
-  const projects = useGetProjects()
-  const cardImage = getImage(projects[0].card)
-  // console.log(projects[0].slug)
-  // console.log(projects[0])
-  // console.log(cardImage)
+  const data = useGetHomepage()
+  const banner = getImage(data.banner)
+  const { title, subtitle, content } = data
   return (
     <Layout>
       <Heading
         level='1'
         id='testID'
       >
-        {projects[0].title}
+        {title}
       </Heading>
-      <GatsbyImage image={cardImage} alt='test image' />
-      {renderRichText(projects[0].content)}
+      <Heading
+        level='2'
+      >
+        {subtitle}
+      </Heading>
+      <GatsbyImage image={banner} alt='test image' />
+      {renderRichText(content)}
     </Layout>
   )
 }
