@@ -3,8 +3,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Layout } from '../components/templates'
-import { Heading } from '../components/atoms'
+import { Layout } from '../../components/templates'
+import { Heading } from '../../components/atoms'
 
 const Project = ({ data }) => {
   const { contentfulProject } = data
