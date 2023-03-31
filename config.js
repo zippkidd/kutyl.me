@@ -1,3 +1,7 @@
 const homepageSlug = 'homepage'
+const contactPageSlug = 'contact'
 
-exports.homepageSlug = homepageSlug
+module.exports = {
+  homepageSlug,
+  contactPageSlug
+}
