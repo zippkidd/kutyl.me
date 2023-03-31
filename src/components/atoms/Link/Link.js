@@ -29,7 +29,7 @@ const Link = ({
 }
 
 Link.propTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'menu']),
   href: PropTypes.string
 }
 

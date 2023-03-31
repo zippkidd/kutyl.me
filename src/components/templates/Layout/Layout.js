@@ -1,5 +1,6 @@
 import React from 'react'
-import { wrapper } from './Layout.module.scss'
+import { MainNav } from '../../organisms'
+import * as styles from './Layout.module.scss'
 import '../../../styles/globals.scss'
 
 const Layout = ({
@@ -8,7 +9,8 @@ const Layout = ({
 }) => {
   return (
     <>
-      <main className={wrapper}>
+      <MainNav />
+      <main className={styles.wrapper}>
         {children}
       </main>
       <footer>
