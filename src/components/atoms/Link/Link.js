@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
 
 const Link = ({
-  label,
   type,
   href,
   ...props
@@ -13,9 +12,9 @@ const Link = ({
     return (
       <GatsbyLink
         className={type || 'tertiary'}
-        to={href}
+        to={href || '#'}
       >
-        {label}
+        {props.children}
       </GatsbyLink>
     )
   }
@@ -24,15 +23,14 @@ const Link = ({
       className={type || 'tertiary'}
       href={href}
     >
-      {label}
+      {props.children}
     </a>
   )
 }
 
 Link.propTypes = {
-  label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
-  href: PropTypes.string.isRequired
+  href: PropTypes.string
 }
 
 export default Link
