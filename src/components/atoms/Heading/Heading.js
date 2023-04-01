@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import * as styles from './Heading.module.scss'
 
 const Heading = ({
+  children,
+  id,
   level,
   size,
-  id,
-  children,
   ...props
 }) => {
   const header = useMemo(() => {
@@ -32,10 +32,10 @@ const Heading = ({
 }
 
 Heading.propTypes = {
-  level: PropTypes.oneOf(['1', '2', '3', '4', '5', '6']).isRequired,
-  size: PropTypes.oneOf(['1', '2', '3', '4', '5', '6']),
+  children: PropTypes.node.isRequired,
   id: PropTypes.string,
-  children: PropTypes.node.isRequired
+  level: PropTypes.oneOf(['1', '2', '3', '4', '5', '6']).isRequired,
+  size: PropTypes.oneOf(['1', '2', '3', '4', '5', '6'])
 }
 
 export default Heading
