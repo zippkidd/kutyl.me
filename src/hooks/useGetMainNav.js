@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 const useGetMainNav = () => {
   const { allContentfulPage } = useStaticQuery(graphql`
     query {
-      allContentfulPage(filter: {isInMainMenu: {eq: true}}) {
+      allContentfulPage(filter: {isInMainMenu: {eq: true}}, sort: {title: ASC}) {
         nodes {
           slug
           title
