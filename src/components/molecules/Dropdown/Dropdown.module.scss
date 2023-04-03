@@ -1,0 +1,20 @@
+.dd {
+  &__wrapper {
+    background: beige;
+  }
+  &__hide {
+    display: none;
+  }
+  &__btn {
+    border-color: red;
+  }
+  &__arrow {
+    &::after {
+      content: "";
+      display: block;
+      height: 1rem;
+      width: 1rem;
+      background-color: seagreen;
+    }
+  }
+}

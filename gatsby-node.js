@@ -1,4 +1,4 @@
-const { homepageSlug } = require('./config')
+const { homepageSlug, contactPageSlug } = require('./config')
 
 const path = require('path')
 exports.onPostBuild = ({ reporter }) => {
@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   result.data.allContentfulPage.nodes.forEach(node => {
-    node.slug !== homepageSlug && createPage({
+    (node.slug !== homepageSlug && node.slug !== contactPageSlug) && createPage({
       path: `${node.slug}`,
       component: pageTemplate,
       context: {

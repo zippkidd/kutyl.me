@@ -3,36 +3,40 @@ import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
 
 const Link = ({
-  label,
-  type,
+  children,
+  expanded,
   href,
+  type,
   ...props
 }) => {
   const internal = /^\/(?!\/)/.test(href)
   if (internal) {
     return (
       <GatsbyLink
+        aria-expanded={expanded || undefined}
         className={type || 'tertiary'}
-        to={href}
+        to={href || '#'}
       >
-        {label}
+        {children}
       </GatsbyLink>
     )
   }
   return (
     <a
+      aria-expanded={expanded || undefined}
       className={type || 'tertiary'}
       href={href}
     >
-      {label}
+      {children}
     </a>
   )
 }
 
 Link.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
-  href: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired,
+  expanded: PropTypes.string,
+  href: PropTypes.string,
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'menu'])
 }
 
 export default Link
