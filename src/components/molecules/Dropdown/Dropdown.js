@@ -4,25 +4,25 @@ import { Link } from '../../atoms'
 import * as styles from './Dropdown.module.scss'
 
 const Dropdown = ({
-  parentLink = { href: '#', title: 'Parent' },
-  subLinks = [{ href: '#', title: 'Child' }],
+  parentLink = { slug: '#', title: 'Parent' },
+  childLinks = [{ slug: '#', title: 'Child' }],
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const children = useMemo(() => subLinks.map((link, i) => (
+  const children = useMemo(() => childLinks.map((link, i) => (
     <li key={i}>
       <Link
-        href={link.href}
+        href={`/${link.slug}`}
         type='menu'
       >
         {link.title}
       </Link>
     </li>
-  )), [subLinks])
+  )), [childLinks])
   return (
     <>
       <Link
-        href={parentLink.href}
+        href={`/${parentLink.slug}`}
         type='menu'
         expanded={`${isOpen}`}
       >
@@ -36,7 +36,7 @@ const Dropdown = ({
         <i className={styles.dd__arrow} aria-hidden='true' />
         <span className='visually-hidden'>{isOpen ? 'Hide' : 'Show'} submenu for {parentLink.title}</span>
       </button>
-      <ul className={isOpen || styles.dd__hide}>
+      <ul className={isOpen ? undefined : styles.dd__hide}>
         {children}
       </ul>
     </>
@@ -45,7 +45,7 @@ const Dropdown = ({
 
 Dropdown.propTypes = {
   parentLink: PropTypes.object.isRequired,
-  subLinks: PropTypes.arrayOf(PropTypes.object).isRequired
+  childLinks: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default Dropdown

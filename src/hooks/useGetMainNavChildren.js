@@ -4,12 +4,15 @@ const useGetMainNav = () => {
   const { allContentfulPage } = useStaticQuery(graphql`
     query {
       allContentfulPage(
-        filter: {isInMainMenu: {eq: true}, isParentMainMenuItem: {ne: false}}
+        filter: {parentMainMenuItem: {slug: {ne: null}}}
         sort: {title: ASC}
       ) {
         nodes {
-          slug
           title
+          slug
+          parentMainMenuItem {
+            slug
+          }
         }
       }
     }
